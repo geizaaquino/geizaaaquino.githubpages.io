@@ -13,6 +13,8 @@
     "node"
   ],
   "author": "Antonia Geiza",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^5.1.3"
+  }
 }
-s

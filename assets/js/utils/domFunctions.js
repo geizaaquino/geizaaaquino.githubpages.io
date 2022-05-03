@@ -11,8 +11,25 @@
 //quando precisamos acessar uma função em outro arquivo é necessário exporta-la.
 
 //CRUD -Create Read Upadete Delete
-export function addTask(){
-    alert("Cadastrando uma nova tarefa");
+export function addTask(db, title=""){
+   // criando uma nova tarefa
+   const task = document.createElement("div");
+   //const id = Number(db.length) + 1;
+   task.classList.add('task');
+   task.setAttribute('id',db.id);
+
+   const taskBody =`
+   <div><input type="checkbox" id="check_${db.id}"/></div>
+                <div>
+                <div><span class="title-task">${title?title:db.title}</span></div>
+                
+                
+                </div>
+                <div>Star</div>`;
+
+    task.innerHTML = taskBody;
+    document.querySelector(".tasks").appendChild(task);
+
 }
 export function removeTask(){
     alert("Removendo uma tarefa");
@@ -20,8 +37,14 @@ export function removeTask(){
 export function updateTask(){
     alert("listando uma tarefa");
 }
-export function getAllTask(){
-    alert("Listando uma tarefa");
+export function getAllTasks(chocolate){
+    chocolate.forEach((item) => {
+        addTask(item);
+        
+        
+    });
+
+    
 }
 export function getTaskById(){
     alert("Exibindo uma tarefa");
